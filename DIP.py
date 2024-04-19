@@ -28,8 +28,8 @@ class DIP(nn.Module):
         self.oversampling = self.oversampling + int(self.oversampling%2 != self.img_size%2)*int(self.oversampling!=1) # this is to bin images with odd number of pixels properly
 
         pad = np.round((self.oversampling*pixels_λ_D-1)*self.tel_pupil.shape[0]/2).astype('int')
-        self.φ_size = self.tel_pupil.shape[0] + 2*pad
-        self.photons = self.flux/self.tel_pupil.sum() * self.tel.pupilReflectivity*self.tel.area*self.tel.det.sampling_time
+        self.φ_size  = self.tel_pupil.shape[0] + 2*pad
+        self.photons = self.flux/self.tel_pupil.sum() * self.tel.pupilReflectivity * self.tel.area * self.tel.det.sampling_time
         self.padders = [torch.nn.ZeroPad2d(val.item()) for val in pad]
 
 

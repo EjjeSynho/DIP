@@ -27,7 +27,6 @@ DIP
 ```
 pytorch
 graphviz (optional)
-
 ```
 
 ## Acknowledgments
