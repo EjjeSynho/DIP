@@ -92,7 +92,7 @@ class DIP(nn.Module):
             OPD = OPD.unsqueeze(0)
         N = OPD.shape[0] # number of PSF samples in the stack
 
-        PSF = torch.zeros([N, self.img_size, self.img_size], device=self.device)
+        PSF = torch.zeros([N, self.img_size, self.img_size], dtype=OPD.dtype, device=self.device)
         for i in range(len(self.tel.src.spectrum)):
             PSF += self.OPD2PSF(self.photons[i], self.λs[i], OPD, self.φ_size[i].item(), self.padders[i], self.oversampling)
         
