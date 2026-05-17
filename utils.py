@@ -1,7 +1,6 @@
 #%%
 # Commom modules
 import torch
-from graphviz import Digraph
 import numpy as np
 
 
